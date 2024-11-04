@@ -9,8 +9,9 @@ function App() {
     <div className="App">
       <AppTitle title="This is App Title"/>
       <Rating value={0}/>
-      <Accordion />
-      <Rating value={3}/>
+      <Accordion titleValue="Menu collapsed" collapsed={true}/>
+      <Accordion titleValue="Users uncollapsed" collapsed={false}/>
+      <Rating value={2}/>
     </div>
   );
 }

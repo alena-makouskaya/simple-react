@@ -1,11 +1,18 @@
 // @flow
 import * as React from "react";
-type Props = {};
-export const Accordion = (props: Props) => {
+type AccordionPropsType = {
+    titleValue: string
+    collapsed: boolean
+};
+
+export const Accordion = (props: AccordionPropsType) => {
   return (
     <div>
-      <AccordionTitle title="Menu"/>
-      <AccordionBody />
+      <AccordionTitle title={props.titleValue}/>
+      {
+        !props.collapsed && <AccordionBody />
+      }
+      
     </div>
   );
 };
@@ -15,7 +22,7 @@ type AccordionTitlePropsType = {
 }
 
 const AccordionTitle = (props: AccordionTitlePropsType) => {
-  return <h2>{props.title}</h2>;
+  return <h3>{props.title}</h3>;
 };
 
 const AccordionBody = () => {
