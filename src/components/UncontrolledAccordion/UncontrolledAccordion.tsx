@@ -1,28 +1,26 @@
 // @flow
 import * as React from "react";
 type AccordionPropsType = {
-    titleValue: string
-    // collapsed: boolean
+  titleValue: string;
+  // collapsed: boolean
 };
 
 export const UncontrolledAccordion = (props: AccordionPropsType) => {
-
-  const collapsed = true
+  const [collapsed, setCollapsed] = React.useState(true);
 
   return (
     <div>
-      <AccordionTitle title={props.titleValue}/> <button> Toggle </button>
-      {
-        !collapsed && <AccordionBody />
-      }
+      <AccordionTitle title={props.titleValue} />{" "}
+      <button onClick={() => setCollapsed(!collapsed)}> Toggle </button>
       
+      {!collapsed && <AccordionBody />}
     </div>
   );
 };
 
 type AccordionTitlePropsType = {
-    title: string
-}
+  title: string;
+};
 
 const AccordionTitle = (props: AccordionTitlePropsType) => {
   return <h3>{props.title}</h3>;
