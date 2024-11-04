@@ -1,21 +1,23 @@
-import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import { Accordion } from "./components/Accordion/Accordion";
-import { Rating } from "./components/Rating/Rating";
+import { Rating, RatingValueType } from "./components/Rating/Rating";
 import { OnOff } from "./components/OnOff/OnOff";
 import { UncontrolledAccordion } from "./components/UncontrolledAccordion/UncontrolledAccordion";
 import { UncontrolledRating } from "./components/UncontrolledRating/UncontrolledRating";
+import { useState } from "react";
 
 function App() {
+  let [ratingValue, setRatingValue] = useState<RatingValueType>(0);
+  let [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(true);
+
   return (
     <div className="App">
       <OnOff />
       <UncontrolledAccordion titleValue="Uncontrolled Accordion" />
-      <Accordion titleValue="Accordion title" collapsed={false}/>
+      <Accordion titleValue="Accordion title" collapsed={accordionCollapsed} onClick={setAccordionCollapsed}/>
 
       <UncontrolledRating />
-      <Rating value={3} />
+      <Rating value={ratingValue} onClick={setRatingValue} />
     </div>
   );
 }
