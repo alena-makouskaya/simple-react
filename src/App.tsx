@@ -1,49 +1,27 @@
 import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
+import { Accordion } from "./Accordion/Accordion";
+import { Rating } from "./Rating/Rating";
 
 function App() {
   return (
     <div className="App">
-      <AppTitle />
-      <Rating />
+      <AppTitle title="This is App Title"/>
+      <Rating value={0}/>
       <Accordion />
-      <Rating />
+      <Rating value={3}/>
     </div>
   );
 }
 
-function Rating() {
-  return (
-    <div>
-      <Star />
-      <Star />
-      <Star />
-      <Star />
-      <Star />
-    </div>
-  );
+type AppTitlePropsType = {
+  title: string
 }
 
-function Star() {
-  return <div>Star</div>;
-}
 
-function Accordion() {
-  return (
-    <div>
-      <h2>Menu</h2>
-      <ul>
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
-      </ul>
-    </div>
-  );
-}
-
-function AppTitle() {
-  return <h2>This is App Title</h2>;
+function AppTitle(props: AppTitlePropsType) {
+  return <h2>{props.title}</h2>;
 }
 
 export default App;
