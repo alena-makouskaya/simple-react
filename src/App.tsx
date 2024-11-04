@@ -5,9 +5,10 @@ import "./App.css";
 function App() {
   return (
     <div className="App">
-      This is APP component
+      <AppTitle />
       <Rating />
       <Accordion />
+      <Rating />
     </div>
   );
 }
@@ -15,13 +16,17 @@ function App() {
 function Rating() {
   return (
     <div>
-      <div>Star</div>
-      <div>Star</div>
-      <div>Star</div>
-      <div>Star</div>
-      <div>Star</div>
+      <Star />
+      <Star />
+      <Star />
+      <Star />
+      <Star />
     </div>
   );
+}
+
+function Star() {
+  return <div>Star</div>;
 }
 
 function Accordion() {
@@ -35,6 +40,10 @@ function Accordion() {
       </ul>
     </div>
   );
+}
+
+function AppTitle() {
+  return <h2>This is App Title</h2>;
 }
 
 export default App;
